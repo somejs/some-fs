@@ -1,1 +1,5 @@
 #!/usr/bin/env node
+
+require('../lib/fs.js').run(
+    process.argv.slice(2)
+)
