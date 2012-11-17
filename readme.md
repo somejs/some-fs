@@ -129,6 +129,7 @@ Fs.File('./docs/examples/path/to/dir/index.js').load(function (err, file) {
 * реализовать [удаление](https://github.com/freaking-awesome/some-fs/issues/2)
 * продумать и реализовать [модель ссылки](https://github.com/freaking-awesome/some-fs/issues/5) и [модель пути](https://github.com/freaking-awesome/some-fs/issues/6) 
 * продумать [методы сортировки](https://github.com/freaking-awesome/some-fs/issues/3)
+* проанализировать сценарии использования [инструментов командной строки](https://github.com/freaking-awesome/some-fs/issues/7)
 
 
 
