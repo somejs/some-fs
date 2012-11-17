@@ -23,18 +23,6 @@
 
  
 
-## Задачи
-* [писать тесты](https://github.com/freaking-awesome/some-fs/issues/4)
-
-* реализовать [переименование файлов и директорий](https://github.com/freaking-awesome/some-fs/issues/1)
-* реализовать [удаление](https://github.com/freaking-awesome/some-fs/issues/2)
-
-* продумать и реализовать [модель ссылки](https://github.com/freaking-awesome/some-fs/issues/5) и [модель пути](https://github.com/freaking-awesome/some-fs/issues/6) 
-
-* продумать [методы сортировки](https://github.com/freaking-awesome/some-fs/issues/3)
-
- 
-
 ## Интерфейс
 #### [Fs.Path](https://github.com/freaking-awesome/some-fs/tree/master/lib/some-fs/models/Path)
 Модель пути к объекту файловой системы.
@@ -132,6 +120,17 @@ Fs.File('./docs/examples/path/to/dir/index.js').load(function (err, file) {
   file.copy('./docs/examples/path/to/dir/index.min.js')
 })
 ```
+
+ 
+
+## [Задачи](https://github.com/freaking-awesome/some-fs/issues?labels=enhancement&state=open)
+* [писать тесты](https://github.com/freaking-awesome/some-fs/issues/4)
+* реализовать [переименование файлов и директорий](https://github.com/freaking-awesome/some-fs/issues/1)
+* реализовать [удаление](https://github.com/freaking-awesome/some-fs/issues/2)
+* продумать и реализовать [модель ссылки](https://github.com/freaking-awesome/some-fs/issues/5) и [модель пути](https://github.com/freaking-awesome/some-fs/issues/6) 
+* продумать [методы сортировки](https://github.com/freaking-awesome/some-fs/issues/3)
+
+
 
  
 
