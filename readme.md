@@ -120,3 +120,8 @@ Fs.File('./docs/examples/path/to/dir/index.js').load(function (err, file) {
   file.copy('./docs/examples/path/to/dir/index.min.js')
 })
 ```
+
+ 
+
+## Лицензия
+MIT
