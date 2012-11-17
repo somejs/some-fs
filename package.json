@@ -3,15 +3,22 @@
   "version": "0.0.1",
   "license": "MIT",
   "description": "some filesystem",
-  "keywords": [ "some", "fs", "filesystem", "fquery", "recursive", "match" ],
+  "keywords": [
+    "some", "fs", "filesystem",
+    "fquery",
+    "recursive", "match"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/freaking-awesome/some-fs.git"
   },
-  "author": "Teh Freak <tehfreak@github.com>",
-  "main": "./index.js",
+  "author": {
+    "name": "Teh Freak",
+    "email": "tehfreak@github.com"
+  },
+  "main": "./lib/some-fs",
   "bin": {
-    "some-model": "./bin/some-fs"
+    "some-fs": "./bin/fs"
   },
   "scripts": {
     "test": "mocha --reporter spec"
