@@ -83,8 +83,8 @@ Fs('./docs/examples', function (err, files) {
 ```javascript
 var Fs= require('some-fs')
 
-Fs('./docs/examples', '*.js', function (err, found) {
-  console.log(found)
+Fs('./docs/examples', '*.js', function (err, files) {
+  console.log(files)
 })
 ```
 Функция инстанцирует модель директории, загружает в нее структуру указанного дерева, проверяет имя каждого файла на соответствие указанному [minimatch](https://github.com/isaacs/minimatch)-шаблону, и возвращает найденное:
@@ -100,4 +100,23 @@ Fs('./docs/examples', '*.js', function (err, found) {
   },
 
 }
+```
+
+### Работайте с файловой системой
+Оперируйте объектами файловой системы с помощью методов соответствующих моделей.
+
+Создавайте файлы и директории:
+```javascript
+Fs.File('./docs/examples/path/to/the/file').save(function (err, file) {
+  console.log( file instanceof Fs.File )
+})
+Fs.Folder('./docs/examples/path/to/other/dir').save(function (err, folder) {
+  console.log( folder instanceof Fs.Folder )
+})
+```
+Копируйте файлы:
+```javascript
+Fs.File('./docs/examples/path/to/dir/index.js').load(function (err, file) {
+  file.copy('./docs/examples/path/to/dir/index.min.js')
+})
 ```
