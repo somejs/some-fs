@@ -9,6 +9,18 @@
 
  
 
+## API
+#### [Fs.Path](https://github.com/freaking-awesome/some-fs/tree/master/lib/some-fs/models/Path)
+Модель пути к объекту файловой системы.
+
+#### [Fs.Folder](https://github.com/freaking-awesome/some-fs/tree/master/lib/some-fs/models/Folder)
+Модель директории.
+
+#### [Fs.File](https://github.com/freaking-awesome/some-fs/tree/master/lib/some-fs/models/File)
+Модель файла.
+
+ 
+
 ## Использование
 
 ### Получение содержимого директории
@@ -22,7 +34,7 @@ Fs('./lib', function (err, found) {
 })
 ```
 Возвращает объект со списком найденных файлов в директории и поддиректориях по указанному пути:
-```
+```javascript
 {
   'some-fs/models/File/index.js': {
     type:'file', path:'./lib/some-fs/models/File/index.js'
@@ -53,8 +65,8 @@ Fs('./lib', '*.js', function (err, found) {
   console.log(found)
 })
 ```
-Применяет указанный [minimatch-шаблон](https://github.com/isaacs/minimatch) к именам найденных файлов:
-```
+Применяет указанный [minimatch](https://github.com/isaacs/minimatch)-шаблон к именам найденных файлов:
+```javascript
 {
   'some-fs/models/File/index.js': {
     type:'file', path:'./lib/some-fs/models/File/index.js'
