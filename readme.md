@@ -1,15 +1,29 @@
 # some-fs [![Build Status](https://secure.travis-ci.org/freaking-awesome/some-fs.png)](http://travis-ci.org/freaking-awesome/some-fs)
-Язык декларативного описания файловой системы.
+Доменная модель файловой системы.
 
  
 
-Установить — ``` npm install ```
+Установить — ``` npm install https://github.com/freaking-awesome/some-fs/archive/master.tar.gz```
 
 Протестировать — ``` npm test ```
 
  
 
-## API
+## Возможности
+
+### Рекурсивные запросы и операции
+Выполняйте сложные рекурсивные операции с помощью простых инструкций. [Создание](), [копирование](), *переименование* и *удаление* файлов и директорий с помощью методов соответствующих моделей. Получение [списка файлов]() и [дерева директорий](). Методы *сортировки*.
+
+### Поиск по маске
+Выбирайте только необходимые файлы с помощью проверки на соответствие [minimatch](https://github.com/isaacs/minimatch)-шаблону.
+
+### Моделирование файловой системы
+
+*Моделируйте сложные структуры директорий, сохраняйте, валидируйте согласно схеме.* Не реализовано.
+
+ 
+
+## Интерфейс
 #### [Fs.Path](https://github.com/freaking-awesome/some-fs/tree/master/lib/some-fs/models/Path)
 Модель пути к объекту файловой системы.
 
@@ -26,59 +40,64 @@
 
 ## Использование
 
-### Получение содержимого директории
+### Получайте содержимое директории
+Выбирайте файлы из всего указанного дерева директорий.
 
-Получить список файлов в директории по указанному пути:
+Например, получите все файлы из папки с примерами:
 ```javascript
 var Fs= require('some-fs')
 
-Fs('./lib', function (err, found) {
-  console.log(found)
+Fs('./docs/examples', function (err, files) {
+  console.log(files)
 })
 ```
-Возвращает объект со списком найденных файлов в директории и поддиректориях по указанному пути:
+Функция возвращает объект со списком найденных файлов в дереве по указанному пути:
 ```javascript
 {
-  'some-fs/models/File/index.js': {
-    type:'file', path:'./lib/some-fs/models/File/index.js'
+
+  'path/to/dir/index.js': {
+    type:'file', path:'./docs/examples/path/to/dir/index.js'
   },
-  'some-fs/models/File/readme.md': {
-    type:'file', path:'./lib/some-fs/models/File/readme.md'
+  'path/to/dir/readme.md': {
+    type:'file', path:'./docs/examples/path/to/dir/readme.md'
   },
-  'some-fs/models/Folder/index.js': {
-    type:'file', path:'./lib/some-fs/models/Folder/index.js'
+
+  'path/to/readme.md': {
+    type:'file', path:'./docs/examples/path/to/readme.md'
   },
-  'some-fs/models/Folder/readme.md': {
-    type:'file', path:'./lib/some-fs/models/Folder/readme.md'
+
+  'path/index.js': {
+    type:'file', path:'./docs/examples/path/index.js'
   },
-  'some-fs/models/Link/readme.md': {
-    type:'file', path:'./lib/some-fs/models/Link/readme.md'
+  'path/readme.md': {
+    type:'file', path:'./docs/examples/path/readme.md'
   },
-  'some-fs/index.js': {
-    type:'file', path:'./lib/some-fs/index.js'
-  }
+
 }
 ```
 
-Получить только определенные файлы:
+### Фильтруйте выборку
+Выбирайте только файлы с подходящими именами.
+
+Например, выберите из папки с примерами только файлы с расширением ```.js```:
 ```javascript
 var Fs= require('some-fs')
 
-Fs('./lib', '*.js', function (err, found) {
+Fs('./docs/examples', '*.js', function (err, found) {
   console.log(found)
 })
 ```
-Применяет указанный [minimatch](https://github.com/isaacs/minimatch)-шаблон к именам найденных файлов:
+Функция инстанцирует модель директории, загружает в нее структуру указанного дерева, проверяет имя каждого файла на соответствие указанному [minimatch](https://github.com/isaacs/minimatch)-шаблону, и возвращает найденное:
 ```javascript
 {
-  'some-fs/models/File/index.js': {
-    type:'file', path:'./lib/some-fs/models/File/index.js'
+
+  'path/to/dir/index.js': {
+    type:'file', path:'./docs/examples/path/to/dir/index.js'
   },
-  'some-fs/models/Folder/index.js': {
-    type:'file', path:'./lib/some-fs/models/Folder/index.js'
+
+  'path/index.js': {
+    type:'file', path:'./docs/examples/path/index.js'
   },
-  'some-fs/index.js': {
-    type:'file', path:'./lib/some-fs/index.js'
-  }
+
 }
 ```
