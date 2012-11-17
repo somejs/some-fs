@@ -1,5 +1,5 @@
 # some-fs
-Язык декларативного описания файловой системы
+Язык декларативного описания файловой системы.
 
  
 
@@ -18,6 +18,9 @@
 
 #### [Fs.File](https://github.com/freaking-awesome/some-fs/tree/master/lib/some-fs/models/File)
 Модель файла.
+
+#### Fs.Link
+Модель ссылки. Не реализована.
 
  
 
@@ -76,88 +79,6 @@ Fs('./lib', '*.js', function (err, found) {
   },
   'some-fs/index.js': {
     type:'file', path:'./lib/some-fs/index.js'
-  }
-}
-```
-
- 
-
-### Модель директории
-
-Инстанцировать модель директории и загрузить в нее данные можно следующим образом:
-```javascript
-var Fs= require('some-fs')
-
-var folder= Fs.Folder('./lib')
-folder.load(function (err, folder) {
-  console.log(folder)
-})
-```
-Метод ```Fs.Folder.load``` рекурсивно загружает в модель данные о структуре директории по указанному пути:
-```javascript
-{
-  type:'folder', path:'.',
-  children: {
-
-    'some-fs/': {
-      type:'folder', path:'./some-fs',
-      children: {
-
-        'models/': {
-          type:'folder', path:'./some-fs/models',
-          children: {
-
-            'File/':{
-              type:'folder', path:'./some-fs/models/File',
-              children: {
-
-                'index.js': {
-                  type:'file', path:'./some-fs/models/File/index.js',
-                }
-
-                'readme.md': {
-                  type:'file', path:'./some-fs/models/File/readme.md',
-                }
-
-              }
-            }
-
-            'Folder/':{
-              type:'folder', path:'./some-fs/models/Folder',
-              children: {
-                
-                'index.js': {
-                  type:'file', path:'./some-fs/models/Folder/index.js',
-                }
-                
-                'readme.md': {
-                  type:'file', path:'./some-fs/models/Folder/readme.md',
-                }
-
-              }
-            }
-
-            'Link/':{
-              type:'folder', path:'./some-fs/models/Link',
-              children: {
-
-                'readme.md': {
-                  type:'file', path:'./some-fs/models/Link/readme.md',
-                }
-
-              }
-            }
-
-          }
-        }
-
-        'index.js': {
-          type:'file', path:'./some-fs/index.js',
-        }
-
-      }
-    }
-
   }
 }
 ```
