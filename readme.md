@@ -1,5 +1,5 @@
 # some-fs [![Build Status](https://secure.travis-ci.org/freaking-awesome/some-fs.png)](http://travis-ci.org/freaking-awesome/some-fs)
-Доменная модель файловой системы.
+Объектная модель файловой системы.
 
  
 
